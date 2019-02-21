@@ -1,0 +1,2 @@
+<!--pages/downloadFile/downloadFile.wxml-->
+<image src='{{src}}' style='width:270px;height:126px'></image>

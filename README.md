@@ -80,5 +80,35 @@ router.post('/upload',(req,res)=>{
 
 
 
+## wx.downloadFile
+
+on wx IDE
+
+```html
+<!--pages/downloadFile/downloadFile.wxml-->
+<image src='{{src}}' style='width:270px;height:126px'></image>
+```
 
 
+
+```js
+
+onLoad: function(options) {
+    let page = this
+    wx.downloadFile({
+      url: 'http://192.168.0.183:3000/public/img/file1.png', //specify the image path on the server
+      success: (res) => {
+        console.log(res)
+        let tempFilePath = res.tempFilePath
+        page.setData({
+          src: tempFilePath
+        })
+      }
+    })
+  },
+
+```
+
+------
+
+ d
