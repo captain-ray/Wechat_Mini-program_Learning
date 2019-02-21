@@ -1,0 +1,2 @@
+<!--pages/upload/upload.wxml-->
+<button type='primary' bindtap='uploadFileBtn'>Click me to upload file</button>
