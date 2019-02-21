@@ -22,8 +22,6 @@ onLoad: function (options) {
 
 
 
-![Screen Shot 2019-02-21 at 10.32.34 PM](/Users/ray/Desktop/Screen Shot 2019-02-21 at 10.32.34 PM.png)
-
   choose to not verify valid domain names, because wx requires HTTPS certificates which is not friendly to developers
 
 ------
@@ -80,11 +78,7 @@ router.post('/upload',(req,res)=>{
 
 
 
-Display:
 
-![Screen Shot 2019-02-22 at 12.06.09 AM](/Users/ray/Desktop/Screen Shot 2019-02-22 at 12.06.09 AM.png)
-
-![Screen Shot 2019-02-22 at 12.06.22 AM](/Users/ray/Desktop/Screen Shot 2019-02-22 at 12.06.22 AM.png)
 
 
 
