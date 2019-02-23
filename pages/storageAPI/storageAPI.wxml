@@ -1,0 +1,4 @@
+<!--pages/storageAPI/storageAPI.wxml-->
+<button type='primary' bindtap='saveIntoCache'>saveIntoCache</button>
+<button type='primary' bindtap='getDataFromCache'>getDataFromCache</button>
+<view>{{userInfo}}</view>

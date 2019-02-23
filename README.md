@@ -287,3 +287,41 @@ previewImg:function(){
 
 ------
 
+## wx-Cache
+
+on wx IDE
+
+```js
+ saveIntoCache: function() {
+    let user1=this.createUser()
+    wx.setStorage({
+      key: 'user1',
+      data: user1,
+    })
+  },
+
+  getDataFromCache:function(){
+    let page=this
+    let user=wx.getStorage({
+      key: 'user1',
+      success: function(res) {
+        
+        page.setData({
+          userInfo:JSON.stringify(res.data)
+        })
+      },
+    })
+  },
+
+  
+  createUser: () => {
+    let user = new Object({
+      name: 'Ray',
+      age: 10
+    })
+    return user
+  },
+```
+
+------
+
