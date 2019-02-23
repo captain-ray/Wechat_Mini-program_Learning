@@ -1,0 +1,2 @@
+<!--pages/getDeviceInfo/getDeviceInfo.wxml-->
+<button type='primary' bindtap='makePhoneCall'>Make_Phone_Call</button>

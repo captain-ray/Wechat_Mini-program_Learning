@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/feedback/feedback",
+    "pages/getDeviceInfo/getDeviceInfo",
     "pages/map/map",
     "pages/storageAPI/storageAPI",
     "pages/downloadFile/downloadFile",

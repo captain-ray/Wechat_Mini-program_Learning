@@ -1,0 +1,8 @@
+<!--pages/feedback/feedback.wxml-->
+<view style='height:100px'>
+  <button type='primary' bindtap='toastSuccess'>Toast Success</button>
+</view>
+<view style='height:100px'>
+  <button type='primary' bindtap='toastLoading'>Toast Loading</button>
+</view>
+
