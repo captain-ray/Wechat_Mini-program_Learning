@@ -1,0 +1,4 @@
+<!--pages/imageAPI/imageAPI.wxml-->
+<button type='primary' bindtap='chooseImg'>CHOOSE IMAGE</button>
+<image src='{{img}}' style='height:200px'></image>
+<button type='primary' bindtap='previewImg'>PREVIEW IMAGE</button>

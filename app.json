@@ -1,8 +1,9 @@
 {
   "pages":[
+    "pages/imageAPI/imageAPI",
+    "pages/upload/upload",
     "pages/chatUsingWebSocket/chatUsingWebSocket",
     "pages/downloadFile/downloadFile",
-    "pages/upload/upload",
     "pages/request/request",
     "pages/index/index",
     "pages/logs/logs"

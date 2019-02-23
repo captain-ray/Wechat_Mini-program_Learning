@@ -229,3 +229,61 @@ creatConn: function() {
 
 ------
 
+
+
+## wx-ImageAPI
+
+### Choose Image
+
+on wx IDE
+
+```js
+data: {
+    img: '',
+    imgPaths:[]
+  },
+  chooseImg: function() {
+    let page = this
+    let imgPaths=page.data.imgPaths
+    wx.chooseImage({
+      success: function(res) {
+        let filePaths = res.tempFilePaths
+        filePaths.forEach((value)=>{
+          imgPaths.push(value)
+        })
+      
+        console.log(imgPaths)
+        page.setData({
+          img: filePaths[0],
+          imgPaths:imgPaths
+        })
+      },
+    })
+  },
+```
+
+
+
+### preview Image
+
+on wx IDE
+
+```js
+data: {
+    img: '',
+    imgPaths:[]
+  },
+      
+previewImg:function(){
+    let page=this
+    wx.previewImage({
+      current:page.data.imgPaths[0],
+      urls: page.data.imgPaths,
+    })
+  },
+```
+
+
+
+------
+
