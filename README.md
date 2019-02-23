@@ -325,3 +325,85 @@ on wx IDE
 
 ------
 
+## wx-map
+
+on wx IDE
+
+```html
+<!-- map.wxml -->
+<map
+  id="map"
+  longitude="{{currentLongitude}}"
+  latitude="{{currentLatitude}}"
+  scale="14"
+  controls="{{controls}}"
+  bindcontroltap="controltap"
+  markers="{{markers}}"
+  bindmarkertap="markertap"
+  polyline="{{polyline}}"
+  bindregionchange="regionchange"
+  show-location
+  style="width: 100%; height: 300px;"
+></map>
+
+```
+
+```js
+// map.js
+Page({
+  data: {
+    currentLongitude:0,
+    currentLatitude:0,
+    markers: [{ //标记
+      iconPath: '/images/1.jpg',
+      id: 0,
+      latitude: 23.099994,
+      longitude: 113.324520,
+      width: 20,
+      height: 20
+    }],
+    polyline: [{ //路线
+      points: [{
+        longitude: 113.3245211,
+        latitude: 23.10229
+      }, {
+        longitude: 113.324520,
+        latitude: 23.21229
+      }],
+      color: '#000000DD',
+      width: 2,
+      dottedLine: true
+    }],
+   
+  },
+  regionchange(e) {
+    console.log(e.type)
+  },
+  markertap(e) {
+    console.log(e.markerId)
+  },
+ 
+
+ onLoad:function(options){
+   console.log('onLoad')
+   let page=this
+   wx.getLocation({ //get current location
+     type:'wgs84',
+     success: function(res) {
+       let latitude=res.latitude
+       let longitude=res.longitude
+       console.log(`latitude-${latitude},longitude-${longitude}`)
+        page.setData({
+          currentLongitude:longitude,
+          currentLatitude:latitude
+        })
+        wx.openLocation({ //open the map provided by the third party
+          latitude: latitude,
+          longitude: longitude,
+        })
+     },
+   })
+ }
+})
+```
+
