@@ -111,4 +111,121 @@ onLoad: function(options) {
 
 ------
 
- d
+ ## wx--WebsocketAPI
+
+create a dialogue window using websocket
+
+
+
+on node server
+
+```js
+//download 'ws' using npm, easy way to create a websocket
+const WebSocket = require('ws');
+
+
+// call the Server class
+const WebSocketServer = WebSocket.Server;
+
+// instantiation, a websocket needs a port
+const wss = new WebSocketServer({
+    port: 8080
+});
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(message) {
+    console.log('received: %s', message);
+    ws.send('Got you msg!---'+message);
+  });
+ 
+});
+```
+
+
+
+on wx IDE
+
+```html
+<!--pages/chatUsingWebSocket/chatUsingWebSocket.wxml-->
+<button type='default' bindtap="creatConn">Create Connection</button>
+<view class='inputBox'>
+  <input type='text' name='msg' bindblur='getMsg' class='input'></input>
+  <button type='primary' size='mini' bindtap='send'>Send</button>
+</view>
+
+<view class='sendWindow'>
+  <view style='font-weight:bold'>Message sent to server</view>
+  <block wx:for="{{sendMsg}}">
+    <view style='color:green'>{{item}}</view>
+  </block>
+</view>
+
+<view class='receiveWindow'>
+  <view style='font-weight:bold'>Message received from server</view>
+  <block wx:for="{{resData}}">
+    <view style='color:red'>{{item}}</view>
+  </block>
+</view>
+```
+
+```js
+creatConn: function() {
+
+    let page = this
+    wx.connectSocket({
+      url: 'ws://192.168.0.183:8080/chatServer',
+      method: 'GET',
+      success: (res) => {
+        console.log('Connection created')
+        console.log(res)
+      }
+    })
+
+
+    wx.onSocketOpen(function(res) {
+      page.setData({
+        socketOpen: true
+      })
+      console.log('connection opened')
+    })
+
+    wx.onSocketError(function(res) {
+      console.log('websocket connection failed')
+    })
+  },
+
+  send: function() {
+
+    if (this.data.socketOpen) {
+
+      wx.sendSocketMessage({
+        data: this.data.msg,
+      })
+      let sendMsg=this.data.sendMsg
+      sendMsg.push(this.data.msg)
+      this.setData({sendMsg:sendMsg})
+      
+      let page=this
+      wx.onSocketMessage(function(res){
+        let resData=page.data.resData
+        resData.push(res.data)
+        page.setData({resData:resData})
+        console.log(resData)
+        console.log('receive data from server '+res.data)
+      })
+
+    } else {
+      console.log('connection failed, please check')
+    }
+  },
+
+  getMsg: function(e) {
+    var page = this
+    page.setData({
+      msg: e.detail.value
+    })
+  },
+```
+
+------
+

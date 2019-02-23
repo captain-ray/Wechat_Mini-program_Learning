@@ -1,0 +1,20 @@
+/* pages/chatUsingWebSocket/chatUsingWebSocket.wxss */
+.inputBox{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.input{
+  width: 200px;
+  border: 1px solid #cccccc;
+}
+
+.receiveWindow{
+  height: 200px;
+}
+
+.sendWindow{
+  height: 200px;
+}
+

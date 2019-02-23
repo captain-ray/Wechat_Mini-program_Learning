@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/chatUsingWebSocket/chatUsingWebSocket",
     "pages/downloadFile/downloadFile",
     "pages/upload/upload",
     "pages/request/request",

@@ -1,0 +1,20 @@
+<!--pages/chatUsingWebSocket/chatUsingWebSocket.wxml-->
+<button type='default' bindtap="creatConn">Create Connection</button>
+<view class='inputBox'>
+  <input type='text' name='msg' bindblur='getMsg' class='input'></input>
+  <button type='primary' size='mini' bindtap='send'>Send</button>
+</view>
+
+<view class='sendWindow'>
+  <view style='font-weight:bold'>Message sent to server</view>
+  <block wx:for="{{sendMsg}}">
+    <view style='color:green'>{{item}}</view>
+  </block>
+</view>
+
+<view class='receiveWindow'>
+  <view style='font-weight:bold'>Message received from server</view>
+  <block wx:for="{{resData}}">
+    <view style='color:red'>{{item}}</view>
+  </block>
+</view>

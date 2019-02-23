@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url: 'http://localhost:3000/public/json/db.json',
+      url: 'http://192.168.0.183:3000/public/json/db.json',
       data: {},
       method: 'GET',
       header: {
